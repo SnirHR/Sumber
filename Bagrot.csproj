@@ -63,8 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actitvites\ActivityLogin.cs" />
-    <Compile Include="Handlers\AppDataHelper.cs" />
+    <Compile Include="Handlers\AppDataHandler.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -122,9 +123,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg2.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <AndroidResource Include="Resources\layout\layoutLogin.xml">
       <SubType>Designer</SubType>
