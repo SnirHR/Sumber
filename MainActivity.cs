@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using Bagrot.Actitvites;
@@ -50,7 +51,7 @@ namespace Bagrot
                 Toast.MakeText(this, "Please Enter A Password", ToastLength.Long).Show();
                 return;
             }
-            this.ShowProgressDialog("Login....");
+            this.ShowProgressDialog("Login in...");
             this.user = new User(email, password);
             if (await this.user.Login() == true)
             {
@@ -60,8 +61,36 @@ namespace Bagrot
             else
             {
                 Toast.MakeText(this, "Login Failed :(", ToastLength.Long).Show();
+                RegisterButton.Visibility = ViewStates.Visible;
             }
             this.progressDialog.Dismiss();
+        }
+
+        private async void RegisterButton_Click(object sender, EventArgs e)
+        {
+            string email = this.emailInput.Text;
+            if (email == "")
+            {
+                Toast.MakeText(this, "Please fill all of the fields", ToastLength.Short).Show();
+                return;
+            }
+            string password = this.passwordInput.Text;
+            User user = new User(email, password);
+            this.ShowProgressDialog("Registering...");
+            if (await user.Register() == true)
+
+            {
+                Toast.MakeText(this, "Register Success", ToastLength.Long).Show();
+                progressDialog.Dismiss();
+                this.Finish();
+
+            }
+            else
+            {
+                Toast.MakeText(this, "Register Failed", ToastLength.Long).Show();
+            }
+            progressDialog.Dismiss();
+
         }
 
         void ShowProgressDialog(string status)
@@ -72,12 +101,6 @@ namespace Bagrot
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
             progressDialog.Show();
         }
-
-        private async void RegisterButton_Click(object sender, EventArgs e)
-        {
-            
-        }
-
 
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

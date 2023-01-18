@@ -17,7 +17,7 @@ namespace Bagrot.Models
         FirebaseAuth firebaseAuthentication;
         FirebaseFirestore database;
 
-        public const string COLLECTION_NAME = "users";//
+        public const string COLLECTION_NAME = "users";
         public const string CURRENT_USER_FILE = "currentUserFile";
 
         public User()
@@ -58,7 +58,6 @@ namespace Bagrot.Models
                 var editor = Application.Context.GetSharedPreferences(User.CURRENT_USER_FILE, FileCreationMode.Private).Edit();
                 editor.PutString("Email", "");
                 editor.PutString("Password", "");
-                editor.PutString("FullName", "");
                 editor.Apply();
                 firebaseAuthentication.SignOut();
             }
@@ -68,7 +67,7 @@ namespace Bagrot.Models
             }
             return true;
         }
-        public async Task<bool> Register()//
+        public async Task<bool> Register()
         {
             try
             {
