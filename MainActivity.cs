@@ -56,7 +56,6 @@ namespace Bagrot
             if (await this.user.Login() == true)
             {
                 Toast.MakeText(this, "Login Successful", ToastLength.Long).Show();
-                this.Finish();
             }
             else
             {
@@ -69,12 +68,12 @@ namespace Bagrot
         private async void RegisterButton_Click(object sender, EventArgs e)
         {
             string email = this.emailInput.Text;
-            if (email == "")
+            string password = this.passwordInput.Text;
+            if (email == "" || password == "")
             {
-                Toast.MakeText(this, "Please fill all of the fields", ToastLength.Short).Show();
+                Toast.MakeText(this, "Please fill all fields", ToastLength.Short).Show();
                 return;
             }
-            string password = this.passwordInput.Text;
             User user = new User(email, password);
             this.ShowProgressDialog("Registering...");
             if (await user.Register() == true)
@@ -82,7 +81,6 @@ namespace Bagrot
             {
                 Toast.MakeText(this, "Register Success", ToastLength.Long).Show();
                 progressDialog.Dismiss();
-                this.Finish();
 
             }
             else

@@ -30,7 +30,6 @@ namespace Bagrot
                     .Build();
 
                 app = FirebaseApp.InitializeApp(Application.Context, options, "Sumber");
-                //FirebaseApp.InitializeApp(context, options, "MarketList");
                 database = FirebaseFirestore.GetInstance(app);
             }
             else
