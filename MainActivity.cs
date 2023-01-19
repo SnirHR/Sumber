@@ -76,8 +76,7 @@ namespace Bagrot
             }
             User user = new User(email, password);
             this.ShowProgressDialog("Registering...");
-            if (await user.Register() == true)
-
+            if (await user.Register())
             {
                 Toast.MakeText(this, "Register Success", ToastLength.Long).Show();
                 progressDialog.Dismiss();

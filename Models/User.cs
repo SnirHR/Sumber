@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.Gms.Extensions;
+using Android.Widget;
 using Firebase.Auth;
 using Firebase.Firestore;
 using Java.Util;
@@ -75,6 +76,8 @@ namespace Bagrot.Models
             }
             catch (Exception e)
             {
+
+                Toast.MakeText(Application.Context, e.Message, ToastLength.Long).Show();
                 Console.WriteLine(e.Message);
                 return false; ;
             }
