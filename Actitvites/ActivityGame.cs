@@ -11,13 +11,14 @@ using System.Text;
 
 namespace Bagrot.Actitvites
 {
-    [Activity(Label = "ActivityLogin")]
-    public class ActivityLogin : Activity
+    [Activity(Label = "ActivityGame")]
+    public class ActivityGame : Activity
     {
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.layoutLogin);
+            SetContentView(Resource.Layout.layoutGame);
             // Create your application here
         }
     }

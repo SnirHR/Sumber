@@ -76,9 +76,6 @@ namespace Bagrot.Models
             }
             catch (Exception e)
             {
-
-                Toast.MakeText(Application.Context, e.Message, ToastLength.Long).Show();
-                Console.WriteLine(e.Message);
                 return false; ;
             }
             try

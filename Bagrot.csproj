@@ -66,7 +66,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actitvites\ActivityLogin.cs" />
+    <Compile Include="Actitvites\ActivityGame.cs" />
     <Compile Include="Handlers\AppDataHandler.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Models\User.cs" />
@@ -127,9 +127,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bg2.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\layoutLogin.xml">
+    <AndroidResource Include="Resources\layout\layoutGame.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -33,22 +33,34 @@
             android:background = "@drawable/rounded"
             android:hint="Password"
             android:id="@+id/passwordInput" />
-        <Button
-            android:text="Sign In"
-            android:background="@drawable/roundedbutton"
-            android:backgroundTint="#c62368"
-            android:layout_width="115dp"
+        <LinearLayout
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:id="@+id/buttonSignIn" />
-        <Button
-            android:text="Register"
-            android:background="@drawable/roundedbutton"
-            android:backgroundTint="#c62368"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:id="@+id/buttonRegister" />
+            android:gravity="center"
+            android:id="@+id/layoutButtons">
+
+            <Button
+                android:text="Sign In"
+                android:background="@drawable/roundedbutton"
+                android:backgroundTint="#c62368"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/buttonSignIn" />
+            <Button
+                android:text="Register"
+                android:background="@drawable/roundedbutton"
+                android:backgroundTint="#c62368"
+                android:layout_width="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonRegister" />
+        </LinearLayout>
     </LinearLayout>
 
 
