@@ -50,6 +50,8 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/Inter"
+                android:textFontWeight="800"
                 android:id="@+id/buttonSignIn" />
             <Button
                 android:text="Register"
@@ -59,6 +61,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/Inter"
+                android:textFontWeight="800"
                 android:id="@+id/buttonRegister" />
         </LinearLayout>
     </LinearLayout>

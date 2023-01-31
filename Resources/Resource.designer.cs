@@ -4047,10 +4047,10 @@ namespace Bagrot
 			public const int scrollOne = 2131230895;
 			
 			// aapt resource value: 0x7F0800B0
-			public const int scrollThree = 2131230896;
+			public const int scrollSum = 2131230896;
 			
 			// aapt resource value: 0x7F0800B1
-			public const int scrollTwo = 2131230897;
+			public const int scrollThree = 2131230897;
 			
 			// aapt resource value: 0x7F0800B2
 			public const int scrollView = 2131230898;

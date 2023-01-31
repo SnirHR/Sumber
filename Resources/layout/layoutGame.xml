@@ -17,10 +17,11 @@
         android:id="@+id/RandomLayout">
         <TextView
             android:layout_gravity="center_horizontal"
-            android:text="Large Text"
+            android:text="-1"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="172.0dp"
             android:layout_height="match_parent"
+            android:fontFamily="@font/Rubik"
             android:textAlignment="center"
             android:textColor="#ffffff"
             android:id="@+id/textView1" />
@@ -40,21 +41,54 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="33"
-            android:id="@+id/scrollOne" />
+            android:id="@+id/scrollOne">
+        </ScrollView>
         <ScrollView
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="33"
-            android:id="@+id/scrollTwo" />
+            android:id="@id/scrollSum">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="100"
+                android:id="@+id/sumHolder">
+                <TextView
+                    android:text="0"
+                    android:textColor="#ffffff"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:textAlignment="center"
+                    android:id="@+id/sumTwo" />
+                <TextView
+                    android:text="0"
+                    android:textColor="#ffffff"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    
+                    android:id="@+id/sumOne" />
+
+
+            </LinearLayout>
+        </ScrollView>
         <ScrollView
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="33"
-            android:id="@+id/scrollThree" />
+            android:id="@+id/scrollThree" >
+        </ScrollView>
     </LinearLayout>
 
 
