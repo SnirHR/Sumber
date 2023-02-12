@@ -5,10 +5,10 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using Bagrot.Actitvites;
 using Bagrot.Models;
 using Google.Android.Material.TextField;
 using System;
+using System.Threading.Tasks;
 
 namespace Bagrot
 {
@@ -44,29 +44,9 @@ namespace Bagrot
             login.SignIn();
         }
 
-        private async void RegisterButton_Click(object sender, EventArgs e)
+        private async Task<bool> RegisterButton_Click(object sender, EventArgs e)
         {
-            string email = this.emailInput.Text;
-            string password = this.passwordInput.Text;
-            if (email == "" || password == "")
-            {
-                Toast.MakeText(this, "Please fill all fields", ToastLength.Short).Show();
-                return;
-            }
-            User user = new User(email, password);
-            this.ShowProgressDialog("Registering...");
-            if (await user.Register())
-            {
-                Toast.MakeText(this, "Register Success", ToastLength.Long).Show();
-                progressDialog.Dismiss();
-
-            }
-            else
-            {
-                Toast.MakeText(this, "Register Failed", ToastLength.Long).Show();
-            }
-            progressDialog.Dismiss();
-
+             return await login.Register();
         }
 
      

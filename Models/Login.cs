@@ -3,7 +3,7 @@ using Android.Content;
 using Android.Gms.Extensions;
 using Android.Views;
 using Android.Widget;
-using Bagrot.Actitvites;
+using Bagrot.Activities;
 using Firebase.Auth;
 using Firebase.Firestore;
 using Java.Util;
@@ -44,7 +44,31 @@ namespace Bagrot.Models
             this.progressDialog.Dismiss();
         }
 
+        public async Task<bool> Register()
+        {
+            string email = this.emailInput.Text;
+            string password = this.passwordInput.Text;
+            if (email == "" || password == "")
+            {
+                Toast.MakeText(this, "Please fill all fields", ToastLength.Short).Show();
+                return false;
+            }
+            User user = new User(email, password);
+            this.ShowProgressDialog("Registering...");
+            if (await user.Register())
+            {
+                Toast.MakeText(this, "Register Success", ToastLength.Long).Show();
+                progressDialog.Dismiss();
+                return true;
+            }
+            else
+            {
+                Toast.MakeText(this, "Register Failed", ToastLength.Long).Show();
+                return false;
+            }
+            progressDialog.Dismiss();
 
+        }
 
         void ShowProgressDialog(string status)
         {
