@@ -66,9 +66,10 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actitvites\ActivityGame.cs" />
+    <Compile Include="Activities\ActivityGame.cs" />
     <Compile Include="Handlers\AppDataHandler.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

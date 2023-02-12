@@ -15,10 +15,11 @@ namespace Bagrot
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        EditText emailInput, passwordInput;
-        Button SignInButton,RegisterButton;
-        ProgressDialog progressDialog;
-        User user;
+        protected EditText emailInput, passwordInput;
+        protected Button SignInButton,RegisterButton;
+        protected ProgressDialog progressDialog;
+        protected User user;
+        Login login;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,6 +30,7 @@ namespace Bagrot
         }
         public void Initiallize()
         {
+            this.login = new Login();
             this.emailInput = this.FindViewById<EditText>(Resource.Id.emailInput);
             this.passwordInput = this.FindViewById<EditText>(Resource.Id.passwordInput);
             this.SignInButton = this.FindViewById<Button>(Resource.Id.buttonSignIn);
@@ -39,32 +41,7 @@ namespace Bagrot
 
         private async void SignInButton_Click(object sender, EventArgs e)
         {
-            string email = this.emailInput.Text;
-            if (email == "")
-            {
-                Toast.MakeText(this, "Please Enter An Email", ToastLength.Long).Show();
-                return;
-            }
-            string password = this.passwordInput.Text;
-            if (password == "")
-            {
-                Toast.MakeText(this, "Please Enter A Password", ToastLength.Long).Show();
-                return;
-            }
-            this.ShowProgressDialog("Login in...");
-            this.user = new User(email, password);
-            if (await this.user.Login() == true)
-            {
-                Toast.MakeText(this, "Login Successful", ToastLength.Long).Show();
-                Intent intent = new Intent(this,typeof(ActivityGame));
-                StartActivity(intent);
-            }
-            else
-            {
-                Toast.MakeText(this, "Login Failed :(", ToastLength.Long).Show();
-                RegisterButton.Visibility = ViewStates.Visible;
-            }
-            this.progressDialog.Dismiss();
+            login.SignIn();
         }
 
         private async void RegisterButton_Click(object sender, EventArgs e)
@@ -92,14 +69,7 @@ namespace Bagrot
 
         }
 
-        void ShowProgressDialog(string status)
-        {
-            this.progressDialog = new ProgressDialog(this);
-            progressDialog.SetCancelable(false);
-            progressDialog.SetMessage(status);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-            progressDialog.Show();
-        }
+     
 
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Bagrot.Actitvites
+namespace Bagrot.Activities
 {
     [Activity(Label = "ActivityGame")]
     public class ActivityGame : Activity
