@@ -56,6 +56,8 @@ namespace Bagrot
             if (await this.user.Login() == true)
             {
                 Toast.MakeText(this, "Login Successful", ToastLength.Long).Show();
+                Intent intent = new Intent(this,typeof(ActivityGame));
+                StartActivity(intent);
             }
             else
             {
