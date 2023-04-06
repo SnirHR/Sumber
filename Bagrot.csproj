@@ -58,6 +58,7 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -67,10 +68,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\ActivityGame.cs" />
+    <Compile Include="Activities\ActivityLeaderboard.cs" />
+    <Compile Include="Adapters\LeaderboardAdapter.cs" />
+    <Compile Include="Adapters\RoundAdapter.cs" />
     <Compile Include="Handlers\AppDataHandler.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\NetworkObject.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="NetworkObjectConstants.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -122,9 +130,6 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\RoundedButton.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +137,19 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\layoutGame.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\layoutLeaderboard.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\leaderboardRow.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RoundRow.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

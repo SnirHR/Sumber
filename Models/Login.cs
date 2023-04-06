@@ -12,67 +12,71 @@ using System.Threading.Tasks;
 
 namespace Bagrot.Models
 {
-    public class Login: MainActivity
+    public class Login
     {
-        public async void SignIn()
+        protected User user;
+        protected MainActivity main;
+        protected Context instance;
+        protected ProgressDialog progressDialog;
+        protected string email, password;
+        public Login(Context instance, MainActivity main)
         {
-            string email = this.emailInput.Text;
-            if (email == "")
-            {
-                Toast.MakeText(this, "Please Enter An Email", ToastLength.Long).Show();
-                return;
-            }
-            string password = this.passwordInput.Text;
-            if (password == "")
-            {
-                Toast.MakeText(this, "Please Enter A Password", ToastLength.Long).Show();
-                return;
-            }
-            this.ShowProgressDialog("Login in...");
-            this.user = new User(email, password);
-            if (await this.user.Login() == true)
-            {
-                Toast.MakeText(this, "Login Successful", ToastLength.Long).Show();
-                Intent intent = new Intent(this, typeof(ActivityGame));
-                StartActivity(intent);
-            }
-            else
-            {
-                Toast.MakeText(this, "Login Failed :(", ToastLength.Long).Show();
-                RegisterButton.Visibility = ViewStates.Visible;
-            }
-            this.progressDialog.Dismiss();
+            this.instance = instance;
+            this.main = main;
         }
 
-        public async Task<bool> Register()
+        public async Task<dynamic> SignIn()
         {
-            string email = this.emailInput.Text;
-            string password = this.passwordInput.Text;
-            if (email == "" || password == "")
+            if (main.emailInput != null)
             {
-                Toast.MakeText(this, "Please fill all fields", ToastLength.Short).Show();
-                return false;
+                email = main.emailInput.Text;
+                if (main.passwordInput != null)
+                {
+                    password = main.passwordInput.Text;
+                    this.user = new User(email, password);
+                    this.ShowProgressDialog("Logging in...");
+                    if (await this.user.Login() != false)
+                    {
+                        this.progressDialog.Dismiss();
+                        return true;
+                    }
+                    this.progressDialog.Dismiss();
+                    return "Login Failed :(";
+                }
+                this.progressDialog.Dismiss();
+                return "Please Enter Password";
             }
-            User user = new User(email, password);
-            this.ShowProgressDialog("Registering...");
-            if (await user.Register())
+            this.progressDialog.Dismiss();
+            return "Please Enter E-mail";
+        }
+        public async Task<dynamic> Register()
+        {
+            if (main.emailInput != null)
             {
-                Toast.MakeText(this, "Register Success", ToastLength.Long).Show();
-                progressDialog.Dismiss();
-                return true;
+                email = main.emailInput.Text;
+                if (main.passwordInput != null)
+                {
+                    password = main.passwordInput.Text;
+                    this.user = new User(email, password);
+                    this.ShowProgressDialog("Registering...");
+                    if (await this.user.Register() != false)
+                    {
+                        this.progressDialog.Dismiss();
+                        return true;
+                    }
+                    this.progressDialog.Dismiss();
+                    return "Register Failed :(";
+                }
+                this.progressDialog.Dismiss();
+                return "Please Enter Password";
             }
-            else
-            {
-                Toast.MakeText(this, "Register Failed", ToastLength.Long).Show();
-                return false;
-            }
-            progressDialog.Dismiss();
-
+            this.progressDialog.Dismiss();
+            return "Please Enter E-mail";
         }
 
         void ShowProgressDialog(string status)
         {
-            this.progressDialog = new ProgressDialog(this);
+            progressDialog = new ProgressDialog(instance);
             progressDialog.SetCancelable(false);
             progressDialog.SetMessage(status);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);

@@ -33,60 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="97.5"
         android:weightSum="100"
-        android:id="@+id/linearLayout1" >
-        <ScrollView
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="33"
-            android:id="@+id/scrollOne">
-        </ScrollView>
-        <ScrollView
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="34"
-            android:id="@+id/scrollSum">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:minWidth="25px"
-                android:minHeight="25px"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:weightSum="100"
-                android:id="@+id/sumHolder">
-                <TextView
-                    android:text="0"
-                    android:textColor="#ffffff"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="50"
-                    android:textAlignment="center"
-                    android:id="@+id/sumTwo" />
-                <TextView
-                    android:text="0"
-                    android:textColor="#ffffff"
-                    android:textAlignment="center"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="50"
-                    android:id="@+id/sumOne" />
-            </LinearLayout>
-        </ScrollView>
-        <ScrollView
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="33"
-            android:id="@+id/scrollThree" >
-        </ScrollView>
+        android:id="@+id/linearLayout1">
     </LinearLayout>
-
-
-
 </LinearLayout>
