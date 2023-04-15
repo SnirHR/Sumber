@@ -15,11 +15,13 @@ namespace Bagrot.Adapters
 {
     public class RoundAdapter : BaseAdapter<NetworkObject> {
 
-        Context context;
+        private Context context;
+        private List<NetworkObject> playersList;
 
         public RoundAdapter(Context context, List<NetworkObject> playersList)
         {
             this.context = context;
+            this.playersList = playersList;
         }
 
         public override Java.Lang.Object GetItem(int position)

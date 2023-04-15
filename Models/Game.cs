@@ -14,6 +14,7 @@ namespace Bagrot.Models
     public class Game
     {
         Player playerOne, playerTwo;
+        List<Round> rounds;
         Random rand;
         bool active;
         int goal;

@@ -23,10 +23,6 @@ namespace Bagrot
         {
 
         }
-        public int GetTurn()
-        {
-            return NetworkObject;
-        }
         public int GetScore()
         {
             return score;

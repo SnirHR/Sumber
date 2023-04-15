@@ -76,6 +76,7 @@
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\NetworkObject.cs" />
+    <Compile Include="Models\Round.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="NetworkObjectConstants.cs" />
     <Compile Include="Player.cs" />
