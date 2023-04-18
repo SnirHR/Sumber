@@ -6,6 +6,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Bagrot.Activities;
 using Bagrot.Adapters;
 using System;
 using System.Collections.Generic;
@@ -16,18 +17,23 @@ namespace Bagrot.Models
 {
     public class Round
     {
+        private GameActivity gameActivity;
         private RoundAdapter adapter;
-        private ListView GameContainer;
-        private int FirstPlayerSubmition, SecondPlayerSubmition;
+        private ListView gameContainer;
+        private EditText numberInput;
+        private int firstPlayerSubmition, secondPlayerSubmition;
         private bool isRunning;
 
-        public Round(int FirstPlayerSubmition,int SecondPlayerSubmition, ListView GameContainer)
+        public Round(GameActivity gameActivity, ListView gameContainer,EditText numberInput, int firstPlayerSubmition, int secondPlayerSubmition)
         {
-            this.FirstPlayerSubmition = FirstPlayerSubmition;
-            this.SecondPlayerSubmition = SecondPlayerSubmition;
-            this.GameContainer = GameContainer;
-            this.GameContainer.Adapter = adapter;
+            this.gameActivity = gameActivity;
+            this.firstPlayerSubmition = firstPlayerSubmition;
+            this.secondPlayerSubmition = secondPlayerSubmition;
+            this.gameContainer = gameContainer;
+            this.gameContainer.Adapter = adapter;
+            this.numberInput = numberInput;
             this.isRunning = true;
+            this.numberInput.Text = "";
 
     }
 

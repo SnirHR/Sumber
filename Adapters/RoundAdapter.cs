@@ -36,7 +36,7 @@ namespace Bagrot.Adapters
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            LayoutInflater layoutInflater = ((ActivityGame)this.context).LayoutInflater;
+            LayoutInflater layoutInflater = ((GameActivity)this.context).LayoutInflater;
             View view = layoutInflater.Inflate(Resource.Layout.leaderboardRow, parent, false);
             TextView textViewPlayer = view.FindViewById<TextView>(Resource.Id.textViewPlayerRow);
             TextView textViewScore = view.FindViewById<TextView>(Resource.Id.ScoreTextRow);

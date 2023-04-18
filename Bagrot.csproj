@@ -67,10 +67,11 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\ActivityGame.cs" />
+    <Compile Include="Activities\GameActivity.cs" />
     <Compile Include="Activities\ActivityLeaderboard.cs" />
     <Compile Include="Adapters\LeaderboardAdapter.cs" />
     <Compile Include="Adapters\RoundAdapter.cs" />
+    <Compile Include="Events\PlayerJoinEvent.cs" />
     <Compile Include="Handlers\AppDataHandler.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Models\Game.cs" />

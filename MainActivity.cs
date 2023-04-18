@@ -16,7 +16,7 @@ namespace Bagrot
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
-        public EditText emailInput, passwordInput;
+        public EditText emailInput, passwordInput,numberInput;
         public Button SignInButton,RegisterButton;
         protected ProgressDialog progressDialog;
         protected User user;
@@ -35,6 +35,7 @@ namespace Bagrot
             this.passwordInput = this.FindViewById<EditText>(Resource.Id.passwordInput);
             this.SignInButton = this.FindViewById<Button>(Resource.Id.buttonSignIn);
             this.RegisterButton = this.FindViewById<Button>(Resource.Id.buttonRegister);
+            this.numberInput = this.FindViewById<EditText>(Resource.Id.NumberInput);
             this.SignInButton.Click += SignInButton_Click;
             this.RegisterButton.Click += RegisterButton_Click1;
             Registering = false;
@@ -50,7 +51,7 @@ namespace Bagrot
                 if ((bool)SignedIn == true)
                 {
                     Toast.MakeText(this, "Register Successful!", ToastLength.Long);
-                    Intent intent = new Intent(this, typeof(ActivityGame));
+                    Intent intent = new Intent(this, typeof(GameActivity));
                     StartActivity(intent);
                 }
             }
@@ -68,7 +69,7 @@ namespace Bagrot
                 if((bool)SignedIn == true)
                 {
                     Toast.MakeText(this, "Login In Successful!", ToastLength.Long);
-                    Intent intent = new Intent(this, typeof(ActivityGame));
+                    Intent intent = new Intent(this, typeof(GameActivity));
                     StartActivity(intent);
                 }
             } catch (Exception ex)
