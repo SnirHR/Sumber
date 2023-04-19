@@ -17,6 +17,7 @@ namespace Bagrot.Models
 {
     public class Round
     {
+        private List<Player> players;
         private GameActivity gameActivity;
         private RoundAdapter adapter;
         private ListView gameContainer;
@@ -24,17 +25,17 @@ namespace Bagrot.Models
         private int firstPlayerSubmition, secondPlayerSubmition;
         private bool isRunning;
 
-        public Round(GameActivity gameActivity, ListView gameContainer,EditText numberInput, int firstPlayerSubmition, int secondPlayerSubmition)
+        public Round(List<Player> players)
         {
-            this.gameActivity = gameActivity;
-            this.firstPlayerSubmition = firstPlayerSubmition;
-            this.secondPlayerSubmition = secondPlayerSubmition;
-            this.gameContainer = gameContainer;
-            this.gameContainer.Adapter = adapter;
-            this.numberInput = numberInput;
+            this.players = players;
+            //this.gameActivity = gameActivity;
+            //this.firstPlayerSubmition = firstPlayerSubmition;
+            //this.secondPlayerSubmition = secondPlayerSubmition;
+            //this.gameContainer = gameContainer;
+            //this.gameContainer.Adapter = adapter;
+            //this.numberInput = numberInput;
             this.isRunning = true;
             this.numberInput.Text = "";
-
     }
 
 }

@@ -15,27 +15,16 @@ namespace Bagrot
 {
     public class Player
     {
-        protected int score;
-        protected int points;
-        protected int turn;
+        public int Sum { get; set; }
+        public int SumBonus { get; set; }
 
         public Player()
         {
-
-        }
-        public int GetScore()
-        {
-            return score;
+            Sum = 0;
+            SumBonus = 0;
+            Toast.MakeText(this,"Hello!",ToastLength.Long).Show();
         }
 
-        public void AddScore(int score)
-        {
-            this.score = score;
-        }
-
-        public void AddPoint()
-        {
-            points++;
-        }
     }
+
 }

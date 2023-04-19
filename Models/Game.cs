@@ -13,52 +13,72 @@ namespace Bagrot.Models
 {
     public class Game
     {
-        Player playerOne, playerTwo;
         List<Round> rounds;
+        List<Player> players;
+        private Player playerOne;
+        private Player playerTwo;
+        private int sumGoal;
         Random rand;
         bool active;
-        int goal;
         byte winner;
-
         public Game()
         {
+            players = new List<Player>();
             playerOne = new Player();
             playerTwo = new Player();
             rand = new Random();
             active = false;
-            goal = rand.Next(42);
+            sumGoal = rand.Next(42);
             winner = 0;
         }
 
-        public void StartRound()
+        public List<Object> ConvertToObject()
         {
-            while (active)
+            List<Object> list = new List<Object>();
+            foreach (Player p in players)
             {
-                int p1 = int.Parse(Console.ReadLine());
-                int p2 = int.Parse(Console.ReadLine());
-                playerOne.AddScore(p1);
-                playerTwo.AddScore(p2);
-
-                if (p1 < p2)
-                {
-                    playerOne.AddPoint();
-                }
-                else
-                {
-                    playerOne.AddPoint();
-                }
-                IsGameActive();
+                list.Add(p);
             }
-            EndGame();
 
+            return list;
         }
-        public void EndGame()
+        public void Start()
         {
+            while (true)
+            {
+                rounds.Add(new Round(players));
+                round.Play();
 
+                if (players[0].Sum >= sumGoal || players[1].Sum >= sumGoal)
+                {
+
+
+                    if (player1.Sum > player2.Sum)
+                    {
+                        Console.WriteLine("Player 1 wins!");
+                    }
+                    else if (player2.Sum > player1.Sum)
+                    {
+                        Console.WriteLine("Player 2 wins!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("It's a tie!");
+                    }
+
+                    break;
+                }
+            }
         }
-        public bool IsGameActive()
-        {
-            if (playerOne.GetScore() >= goal || playerTwo.GetScore() >= goal)
+
+    public void EndGame()
+    {
+
+       
+    }
+    public bool IsGameActive()
+    {
+        if (playerOne.Sum >= sumGoal || playerTwo.Sum >= sumGoal)
             {
                 active = false;
                 return true;

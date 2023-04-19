@@ -54,10 +54,10 @@ namespace Bagrot.Models
             return networkObject;
         }
 
-        public static async Task<List<NetworkObject>> GetLeaderboard(string collectionName)
+        public static async Task<List<NetworkObject>> GetLeaderboard()
         {
             FirebaseFirestore firestore = AppDataHandler.GetFirestore();
-            CollectionReference collectionRef = firestore.Collection(collectionName);
+            CollectionReference collectionRef = firestore.Collection("Leaderboard");
             QuerySnapshot querySnapshot = (QuerySnapshot)await collectionRef.Get();
 
             List<NetworkObject> leaderboard = new List<NetworkObject>();

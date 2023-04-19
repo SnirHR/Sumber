@@ -14,11 +14,18 @@ namespace Bagrot.Activities
     [Activity(Label = "ActivityGame")]
     public class GameActivity : Activity
     {
+        bool playersConnected;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.layoutGame);
+            initiallize();
+        }
+
+        public void initiallize()
+        {
+            playersConnected = true;
         }
 
 

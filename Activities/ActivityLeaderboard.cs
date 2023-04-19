@@ -34,7 +34,7 @@ namespace Bagrot.Activities
         }
         public async void Init()
         {
-            playersList = await NetworkObject.GetLeaderboard("Leaderboard");
+            playersList = await NetworkObject.GetLeaderboard();
             LeaderboardAdapter = new LeaderboardAdapter(ApplicationContext, playersList);
             listPlayers = FindViewById<ListView>(Resource.Id.leaderboardView);
             listPlayers.Adapter = LeaderboardAdapter;
