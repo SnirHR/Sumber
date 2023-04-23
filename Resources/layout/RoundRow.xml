@@ -65,5 +65,4 @@
                 android:id="@+id/PlayerOneScore" />
         </LinearLayout>
     </LinearLayout>
-    </LinearLayout>
 </LinearLayout>

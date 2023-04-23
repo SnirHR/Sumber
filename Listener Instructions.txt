@@ -1,117 +1,13 @@
-namespace BankAccountExample
-{
-    // Define your custom event delegate
-    public delegate void BalanceChangedEventHandler(object sender, BalanceChangedEventArgs args);
-
-    // Define your custom event args
-    public class BalanceChangedEventArgs : EventArgs
-    {
-        public decimal OldBalance { get; set; }
-        public decimal NewBalance { get; set; }
-    }
-
-    // Define your bank account class that will raise the custom event
-    public class BankAccount
-    {
-        private decimal balance;
-
-        public event BalanceChangedEventHandler BalanceChanged;
-
-        public decimal Balance
-        {
-            get { return balance; }
-            set
-            {
-                if (balance != value)
-                {
-                    // raise the event
-                    var args = new BalanceChangedEventArgs { OldBalance = balance, NewBalance = value };
-                    balance = value;
-                    BalanceChanged?.Invoke(this, args);
-                }
-            }
-        }
-    }
-
-    // Define your account notifier class that will handle the custom event
-    public class AccountNotifier
-    {
- 
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Instantiate your bank account class and account notifier class, and subscribe to the event
-            var bankAccount = new BankAccount();
-            var accountNotifier = new AccountNotifier();
-            bankAccount.BalanceChanged += HandleBalanceChanged;
-
-
-       public void HandleBalanceChanged(object sender, BalanceChangedEventArgs args)
-        {
-            // handle the event
-            Console.WriteLine($"Your account balance has changed from {args.OldBalance:C} to {args.NewBalance:C}.");
-        }
-            // Call the method that changes the balance
-            bankAccount.Balance = 500.00M;
-
-            Console.ReadLine();
-        }
-    }
-}
-
-
-1. 
-	Define your custom event delegate. In this case, the delegate is called BalanceChangedEventHandler and it takes two parameters - the sender (object) and the event arguments (BalanceChangedEventArgs).
-	```
-	public delegate void BalanceChangedEventHandler(object sender, BalanceChangedEventArgs args);
-2.
-	Define your custom event arguments. In this case, the BalanceChangedEventArgs class has two properties - OldBalance and NewBalance. These properties will be used to pass data about the balance change to the event listener.
-	public class BalanceChangedEventArgs : EventArgs
-	{
-		public decimal OldBalance { get; set; }
-		public decimal NewBalance { get; set; }
-	}
-3.
-	Define your bank account class that will raise the custom event. In this case, the BankAccount class has a private balance field and a public Balance property. The Balance property raises the BalanceChanged event when the balance is changed. If the balance field is updated, it creates a new instance of the BalanceChangedEventArgs class with the old and new balances, and then raises the BalanceChanged event with the BankAccount instance as the sender and the BalanceChangedEventArgs instance as the event arguments.
-	public class BankAccount
-	{
-		private decimal balance;
-
-		public event BalanceChangedEventHandler BalanceChanged;
-
-		public decimal Balance
-		{
-			get { return balance; }
-			set
-			{
-				if (balance != value)
-				{
-					// raise the event
-					var args = new BalanceChangedEventArgs { OldBalance = balance, NewBalance = value };
-					balance = value;
-					BalanceChanged?.Invoke(this, args);
-				}
-			}
-		}
-	}
-4.
-	Define your event listener class that will handle the custom event. In this case, the AccountNotifier class has a method called HandleBalanceChanged that takes two parameters - the sender (object) and the event arguments (BalanceChangedEventArgs). This method is called when the BalanceChanged event is raised and it writes a message to the console indicating the old and new balances.
-	public class AccountNotifier
-	{
-		public void HandleBalanceChanged(object sender, BalanceChangedEventArgs args)
-		{
-			// handle the event
-			Console.WriteLine($"Your account balance has changed from {args.OldBalance:C} to {args.NewBalance:C}.");
-		}
-	}
-	Instantiate your bank account class and event listener class, and subscribe to the event. In this case, we create instances of the BankAccount and AccountNotifier classes and subscribe the AccountNotifier instance to the BalanceChanged event of the BankAccount instance. This means that when the BalanceChanged event is raised, the AccountNotifier instance will receive the notification and call its HandleBalanceChanged method.
-	var bankAccount = new BankAccount();
-	var accountNotifier = new AccountNotifier();
-	bankAccount.BalanceChanged += accountNotifier.HandleBalanceChanged;
-	Call the method that changes the balance. In this case, we set the Balance property of the BankAccount instance to a new value. This triggers the BalanceChanged event, which sends a notification to the AccountNotifier instance and calls its HandleBalanceChanged method.
-	Copy code
-	bankAccount.Balance = 500.00M;
-	Run the program and observe the output. In this case, the program will write a message to the console indicating the old and new balances of the bank account.
+[typed string0="אני חייבת לומר לך. התחלתי להשתמש בכלי שלך. הוא פשוט פלא! הוא מדייק את מה שאני רוצה לומר לתלמיד בצורה מושלמת!! כל הכבוד!"
+string1="אני משתמשת ב&quot;מחולל ממני אליך&quot; שנה שלישית ברציפות! כל כך עוזר!"
+string2="מחולל מעולה. באמת חסך הרבה זמן עם תוצאה של היגדים מהממים ומדויקים לכל ילד."
+ string3="וואו! סמדר, למען האמת בהתחלה פקפקתי ביכולת של המחולל להפיק פסקה אישית ואותנטית. אבל אחרי רכישה והתנסות, אני מסירה את הכובע בפניך! כלי נפלא!! הפסקה יוצאת אישית, מנוסחת נפלא וכוללת התבוננות מקיפה על כל תלמיד. שאפו ענק ותודה!"
+ string4="לפני ימים אחדים כבר רכשתי במחיר מלא, ועדיין לא מוותרת, עושה חיים קלים"
+ string5="מה שפעם היה לוקח לי ימים ארוכים, היום אני מסיים תוך כמה שעות, ויש פסקאות ממני אליך לכל הכיתה."
+ string6="בשנה שעברה עבדתי בבית ספר שכל ההערכה היא מילולית....הצלת את חיי. זה שווה את המחיר, ומגיע לך!!"
+ string7="אני משתמשת במחולל ממני אליך&quot; כבר שנתיים, מנהלת בית הספר האלופה שלנו רוכשת את זה עבור הצוות."
+ string8="אני נעזרתי ב&quot;מחולל ממני אליך&quot; כדי לקבל השראה ובעיקר לסידור תחבירי נכון. מומלץ!"
+ string9="גם אני רכשתי מנוי ל&quot;מחולל ממני אליך&quot; .פשוט נפלא !!! איך לא חשבו על זה קודם? מקצר את הזמן בחצי."
+ string10="אני משתמשת ב&quot;מחולל ממני אליך&quot; בזכות המנהלת מספר 1 של בית הספר שלי שדואגת מזה שנתיים להקל על הצוות ולעשות להם את החיים קלים ונוחים יותר- ממליצה בחום!"
+ string11="מחולל מדהים! תודה לך סמדר"
+ string12="מוצר מדהים, חוסך בזמן ותמיד יש מקום לעריכה ודיוק." typeSpeed="35" startDelay="0" backSpeed="30" backDelay="3500" loop="1" shuffle="1"]

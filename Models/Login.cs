@@ -27,10 +27,10 @@ namespace Bagrot.Models
 
         public async Task<dynamic> SignIn()
         {
-            if (main.emailInput != null)
+            if (main.emailInput.Text != "")
             {
                 email = main.emailInput.Text;
-                if (main.passwordInput != null)
+                if (main.passwordInput.Text != "")
                 {
                     password = main.passwordInput.Text;
                     this.user = new User(email, password);
@@ -51,10 +51,10 @@ namespace Bagrot.Models
         }
         public async Task<dynamic> Register()
         {
-            if (main.emailInput != null)
+            if (main.emailInput.Text != "")
             {
                 email = main.emailInput.Text;
-                if (main.passwordInput != null)
+                if (main.passwordInput.Text != "")
                 {
                     password = main.passwordInput.Text;
                     this.user = new User(email, password);

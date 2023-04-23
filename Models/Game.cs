@@ -46,28 +46,28 @@ namespace Bagrot.Models
         {
             while (true)
             {
-                rounds.Add(new Round(players));
-                round.Play();
+                //rounds.Add(new Round(players));
+                //round.Play();
 
-                if (players[0].Sum >= sumGoal || players[1].Sum >= sumGoal)
-                {
+                //if (players[0].Sum >= sumGoal || players[1].Sum >= sumGoal)
+                //{
 
 
-                    if (player1.Sum > player2.Sum)
-                    {
-                        Console.WriteLine("Player 1 wins!");
-                    }
-                    else if (player2.Sum > player1.Sum)
-                    {
-                        Console.WriteLine("Player 2 wins!");
-                    }
-                    else
-                    {
-                        Console.WriteLine("It's a tie!");
-                    }
+                //    if (player1.Sum > player2.Sum)
+                //    {
+                //        Console.WriteLine("Player 1 wins!");
+                //    }
+                //    else if (player2.Sum > player1.Sum)
+                //    {
+                //        Console.WriteLine("Player 2 wins!");
+                //    }
+                //    else
+                //    {
+                //        Console.WriteLine("It's a tie!");
+                //    }
 
-                    break;
-                }
+                //    break;
+                //}
             }
         }
 

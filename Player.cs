@@ -22,7 +22,6 @@ namespace Bagrot
         {
             Sum = 0;
             SumBonus = 0;
-            Toast.MakeText(this,"Hello!",ToastLength.Long).Show();
         }
 
     }
