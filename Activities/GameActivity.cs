@@ -8,11 +8,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Java.Util;
 
 namespace Bagrot.Activities
 {
     [Activity(Label = "ActivityGame")]
-    public class GameActivity : Activity
+    public class GameActivity : Activity,GameView
     {
         bool playersConnected;
 
@@ -26,6 +27,12 @@ namespace Bagrot.Activities
         public void initiallize()
         {
             playersConnected = true;
+
+        }
+
+        public void Update()
+        {
+            Invalidate();
         }
 
 
